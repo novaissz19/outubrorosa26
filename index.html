@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Outubro Rosa | Projeto Conscientização 3º Ano B</title>
+  
+  <!-- Fontes do Google: Poppins e Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&family=Poppins:wght@700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    /* RESET & NEO-BRUTALIST VARIABLES */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --brutal-black: #000000;
+      --brutal-white: #ffffff;
+      --hot-pink: #FF1493;
+      --soft-pink: #FFB6C1;
+      --light-bg: #FFF0F5;
+      --deep-magenta: #880E4F;
+      --accent-yellow: #FFEA00;
+      --border-thick: 4px solid var(--brutal-black);
+      --border-thin: 3px solid var(--brutal-black);
+      --shadow-lg: 8px 8px 0px var(--brutal-black);
+      --shadow-md: 5px 5px 0px var(--brutal-black);
+      --shadow-sm: 3px 3px 0px var(--brutal-black);
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--brutal-black);
+      background-color: var(--light-bg);
+      /* Padrão de fundo em pontilhado neo-brutalista */
+      background-image: radial-gradient(var(--brutal-black) 1px, transparent 1px);
+      background-size: 18px 18px;
+      min-height: 100vh;
+      line-height: 1.5;
+      overflow-x: hidden;
+      padding: 30px 15px;
+    }
+
+    /* CONTAINER PRINCIPAL */
+    .app-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    /* HERO SECTION BRUTALISTA */
+    .hero {
+      background: var(--hot-pink);
+      color: var(--brutal-black);
+      padding: 40px 30px;
+      border: var(--border-thick);
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      background-image: linear-gradient(135deg, var(--hot-pink) 0%, #FF69B4 100%);
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: var(--accent-yellow);
+      color: var(--brutal-black);
+      padding: 6px 14px;
+      font-size: 0.9rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border: var(--border-thin);
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(2.5rem, 6vw, 4.2rem);
+      font-weight: 900;
+      line-height: 1.05;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: -1px;
+      text-shadow: 2px 2px 0px var(--brutal-white);
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1.1rem, 2.5vw, 1.35rem);
+      font-weight: 800;
+      background: var(--brutal-white);
+      display: inline-block;
+      padding: 6px 12px;
+      border: var(--border-thin);
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 20px;
+    }
+
+    .hero-quote {
+      font-style: normal;
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 12px 16px;
+      background: var(--soft-pink);
+      border: var(--border-thin);
+      box-shadow: var(--shadow-sm);
+      display: block;
+      max-width: fit-content;
+    }
+
+    /* CARDS GRID */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+    }
+
+    .card {
+      background: var(--brutal-white);
+      border: var(--border-thick);
+      padding: 28px 24px;
+      box-shadow: var(--shadow-lg);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .card:hover {
+      transform: translate(-3px, -3px);
+      box-shadow: 11px 11px 0px var(--brutal-black);
+    }
+
+    .card-icon {
+      width: 52px;
+      height: 52px;
+      background: var(--accent-yellow);
+      color: var(--brutal-black);
+      border: var(--border-thin);
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 900;
+      margin-bottom: 20px;
+    }
+
+    .card h2 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.4rem;
+      color: var(--brutal-black);
+      margin-bottom: 12px;
+      font-weight: 900;
+      text-transform: uppercase;
+      border-bottom: var(--border-thin);
+      padding-bottom: 8px;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--brutal-black);
+      margin-bottom: 18px;
+    }
+
+    .card ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: auto;
+    }
+
+    .card li {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--brutal-black);
+      background: var(--soft-pink);
+      padding: 8px 12px;
+      border: 2px solid var(--brutal-black);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .card li::before {
+      content: "■";
+      color: var(--hot-pink);
+      font-size: 1rem;
+      line-height: 1;
+    }
+
+    /* SEÇÃO DE LINKS OFICIAIS */
+    .links-section {
+      background: var(--soft-pink);
+      border: var(--border-thick);
+      padding: 32px 28px;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .links-section h2 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 900;
+      color: var(--brutal-black);
+      margin-bottom: 8px;
+      text-transform: uppercase;
+    }
+
+    .links-section > p {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--brutal-black);
+      margin-bottom: 24px;
+    }
+
+    .links-wrapper {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+    }
+
+    /* BOTOES PRESSED INTERATIVOS NEO-BRUTALISTAS */
+    .official-btn {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 20px;
+      background: var(--brutal-white);
+      color: var(--brutal-black);
+      text-decoration: none;
+      font-weight: 900;
+      font-size: 1rem;
+      border: var(--border-thick);
+      box-shadow: var(--shadow-md);
+      transition: all 0.1s ease;
+      cursor: pointer;
+    }
+
+    .official-btn:hover {
+      background: var(--accent-yellow);
+      transform: translate(-2px, -2px);
+      box-shadow: 7px 7px 0px var(--brutal-black);
+    }
+
+    .official-btn:active {
+      transform: translate(3px, 3px);
+      box-shadow: 2px 2px 0px var(--brutal-black);
+    }
+
+    .official-btn .arrow {
+      font-size: 1.4rem;
+      font-weight: 900;
+      transition: transform 0.15s ease;
+    }
+
+    .official-btn:hover .arrow {
+      transform: translateX(6px);
+    }
+
+    /* RODAPÉ BRUTALISTA */
+    footer {
+      text-align: center;
+      padding: 16px 20px;
+      background: var(--brutal-black);
+      color: var(--brutal-white);
+      font-weight: 800;
+      font-size: 0.9rem;
+      border: var(--border-thick);
+      box-shadow: var(--shadow-md);
+      margin-top: 10px;
+    }
+
+    /* AJUSTES RESPONSIVOS */
+    @media (max-width: 600px) {
+      body {
+        padding: 16px 10px;
+      }
+      .hero {
+        padding: 26px 18px;
+      }
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+      .hero-subtitle {
+        font-size: 1rem;
+      }
+      .card {
+        padding: 20px 16px;
+      }
+      .links-section {
+        padding: 22px 18px;
+      }
+      :root {
+        --shadow-lg: 5px 5px 0px var(--brutal-black);
+        --shadow-md: 4px 4px 0px var(--brutal-black);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="app-container">
+    
+    <!-- HERO SECTION -->
+    <header class="hero">
+      <span class="hero-badge">Projeto Escolar</span>
+      <h1>Outubro Rosa</h1>
+      <p class="hero-subtitle">Conscientização & Prevenção — Ensino Médio (3º Ano B)</p>
+      <p class="hero-quote">"O cuidado com a saúde começa no conhecimento e no autocuidado diário."</p>
+    </header>
+
+    <!-- CARDS INFORMATIVOS INTERATIVOS -->
+    <main class="cards-grid">
+      
+      <!-- Card 1 -->
+      <article class="card">
+        <div class="card-icon">01</div>
+        <h2>O que é a Campanha?</h2>
+        <p>Um movimento internacional dedicado ao alerta sobre a importância da detecção precoce do câncer de mama, incentivando exames e o cuidado contínuo.</p>
+      </article>
+
+      <!-- Card 2 -->
+      <article class="card">
+        <div class="card-icon">02</div>
+        <h2>Sinais de Alerta</h2>
+        <p>Atenção aos sinais corporais que indicam a necessidade de avaliação médica especializada:</p>
+        <ul>
+          <li>Nódulos ou caroços perceptíveis na mama ou axilas</li>
+          <li>Alterações no formato ou textura da pele da mama</li>
+          <li>Inchaços ou retrações incomuns na região</li>
+        </ul>
+      </article>
+
+      <!-- Card 3 -->
+      <article class="card">
+        <div class="card-icon">03</div>
+        <h2>Ações de Prevenção</h2>
+        <p>Hábitos e condutas saudáveis que auxiliam na manutenção do bem-estar e na prevenção:</p>
+        <ul>
+          <li>Prática regular de exercícios físicos</li>
+          <li>Alimentação saudável e balanceada</li>
+          <li>Consultas e exames preventivos periódicos</li>
+        </ul>
+      </article>
+
+    </main>
+
+    <!-- SEÇÃO DE LINKS OFICIAIS -->
+    <section class="links-section">
+      <h2>Canais de Informação Oficiais</h2>
+      <p>Acesse os portais do governo para obter dados detalhados, orientações médicas e diretrizes de saúde pública:</p>
+
+      <div class="links-wrapper">
+        <a href="https://www.gov.br/inca/pt-br/assuntos/causas-e-prevencao-do-cancer/outubro-rosa" target="_blank" rel="noopener noreferrer" class="official-btn">
+          <span>INCA — Instituto Nacional de Câncer</span>
+          <span class="arrow">→</span>
+        </a>
+
+        <a href="https://www.gov.br/saude/pt-br" target="_blank" rel="noopener noreferrer" class="official-btn">
+          <span>Ministério da Saúde — Portal Gov</span>
+          <span class="arrow">→</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- RODAPÉ -->
+    <footer>
+      <p>Desenvolvido para apresentação acadêmica do 3º Ano B — Ensino Médio.</p>
+    </footer>
+
+  </div>
+
+</body>
+</html>
